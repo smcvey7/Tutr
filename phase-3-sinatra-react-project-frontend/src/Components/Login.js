@@ -1,16 +1,15 @@
 import React from "react";
 
-function Login(){
+function Login({setCurrentUser}){
 
   return(
     <form>
-      I am a...
+      username<input></input><br/>
+      password<input type="password" ></input>
       <select>
-        <option>Student</option>
-        <option>Tutor</option>
+        <option>student</option>
+        <option>tutor</option>
       </select>
-      <input></input>
-      <input type="password" ></input>
     </form>
   )
 }
