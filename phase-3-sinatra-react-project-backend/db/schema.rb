@@ -30,10 +30,9 @@ ActiveRecord::Schema.define(version: 2023_01_10_220134) do
   end
 
   create_table "tutors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.string "courses"
-    t.string "booking_link"
+    t.string "image_url"
     t.string "username"
     t.string "password"
   end
