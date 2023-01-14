@@ -29,6 +29,7 @@ function Login({setCurrentUser}){
       console.log("data:", data)
       checkCredentials(data) ? setCurrentUser(data) : alert("User info incorrect. Please try again.")
     })
+    .catch()
     console.log(`logged in ${userInfo.userType}: ${userInfo.username} with password ${userInfo.password}.`)
   }
 
