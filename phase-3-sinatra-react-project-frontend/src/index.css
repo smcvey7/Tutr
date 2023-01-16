@@ -15,3 +15,29 @@ code {
 .hoverUnderline:hover {
   text-decoration: underline;
 }
+
+.flexContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.tile{
+  border-style: solid;
+  width: 250px;
+  margin: 20px;
+}
+
+img.profilePic{
+  width: 75%;
+}
+
+h3#studentPosition{
+  background-color: blue;
+  margin-top: 0px;
+}
+
+h3#tutorPosition{
+  background-color: green;
+  margin-top: 0px;
+}
