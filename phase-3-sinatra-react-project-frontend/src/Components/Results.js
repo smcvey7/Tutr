@@ -112,7 +112,7 @@ function Results(){
       position: "tutor",
       name: "Legolas",
       courses: "Elvish",
-      image_url: "https://static.wikia.nocookie.net/the-hobbit-lotr-trilogies/images/c/c0/Legolas2.jpg/revision/latest?cb=20190721145737",
+      image_url: "https://external-preview.redd.it/SncyBro0jmn_nUoqr8cwOUy0XWTMqyVJh9oLSbc92jw.png?width=640&crop=smart&format=pjpg&auto=webp&s=c8bf341d52d07327067b76650f0dc9f4976060a9",
       username: "legolas",
       password: "password",
     },

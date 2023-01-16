@@ -1,12 +1,18 @@
 import React, {useState} from "react";
 
 function Search(){
+  const [query, setQuery] = useState("")
   const [checks, setChecks] = useState({
     all: true,
     students: true,
     tutors: true,
     lessons: true
   })
+
+  function onChangeQuery(e){
+    setQuery(e.target.value)
+    console.log(e.target.value)
+  }
 
   function checkAll(){
     checks.all ?
@@ -43,7 +49,7 @@ function Search(){
     <div>
       <h2>Search</h2>
       <form>
-        <input/><br/>
+        <input value={query} onChange={onChangeQuery}/><br/>
         <input checked={checks.all} onChange={checkAll} type="checkbox"  />all
         <input checked={checks.students} name="students" onChange={onCheckChange} type="checkbox"/>students
         <input checked={checks.tutors} name="tutors" onChange={onCheckChange} type="checkbox"/>tutors

@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2023_01_10_220134) do
     t.string "before_lesson"
     t.string "after_lesson"
     t.integer "grade"
+    t.integer "student_id"
+    t.integer "tutor_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -28,6 +30,7 @@ ActiveRecord::Schema.define(version: 2023_01_10_220134) do
     t.integer "current_lesson"
     t.string "username"
     t.string "password"
+    t.integer "tutor_id"
   end
 
   create_table "tutors", force: :cascade do |t|

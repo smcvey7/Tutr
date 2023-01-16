@@ -7,6 +7,8 @@ class CreateLessons < ActiveRecord::Migration[6.1]
       t.string :before_lesson
       t.string :after_lesson
       t.integer :grade
+      t.integer :student_id
+      t.integer :tutor_id
     end
   end
 end
