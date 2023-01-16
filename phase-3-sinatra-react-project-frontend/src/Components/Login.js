@@ -17,7 +17,6 @@ function Login({setCurrentUser}){
   }
 
   function handleLogin(){
-    console.log("link",`http://localhost:9292/${userInfo.userType}s/user-search/${userInfo.username}`)
     fetch(`http://localhost:9292/${userInfo.userType}s/user-search/${userInfo.username}`, {
       method: "GET",
       headers: {
@@ -29,8 +28,7 @@ function Login({setCurrentUser}){
       console.log("data:", data)
       checkCredentials(data) ? setCurrentUser(data) : alert("User info incorrect. Please try again.")
     })
-    .catch()
-    console.log(`logged in ${userInfo.userType}: ${userInfo.username} with password ${userInfo.password}.`)
+    .catch(alert("Username doesn't exist. Please try again."))
   }
 
   function checkCredentials(data){

@@ -11,11 +11,14 @@ function App() {
     password: null
   })
 
+
+  const [queryResults, setQueryResults] = useState(null)
+
   return (
     <div className="App">
       <Header currentUser = {currentUser.username} setCurrentUser = {setCurrentUser} />
-      <Search/>
-      <Results/>
+      <Search setQueryResults={setQueryResults}/>
+      <Results results={queryResults}/>
     </div>
   );
 }

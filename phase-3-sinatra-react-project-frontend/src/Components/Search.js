@@ -1,60 +1,44 @@
 import React, {useState} from "react";
 
-function Search(){
-  const [query, setQuery] = useState("")
-  const [checks, setChecks] = useState({
-    all: true,
-    students: true,
-    tutors: true
+function Search({setQueryResults}){
+  const [query, setQuery] = useState({
+    queryType: "user",
+    queryText: ""
   })
 
   function onChangeQuery(e){
-    setQuery(e.target.value)
-    console.log(e.target.value)
+    setQuery({
+      ...query,
+      [e.target.name]: e.target.value
+    })
   }
 
-  function checkAll(){
-    checks.all ?
-      setChecks({
-        all: false,
-        students: false,
-        tutors: false
-      }) :
-      setChecks({
-        all: true,
-        students: true,
-        tutors: true
-      })
-  }
+  function handleSubmit(e){
+    e.preventDefault()
 
-  function onCheckChange(e){
-    console.log(e)
-    checks[e.target.name] ? setChecks(
-      {
-        ...checks,
-        all: false,
-        [e.target.name]: !checks[e.target.name]
-      }) :
-    setChecks(
-      {
-        ...checks,
-        [e.target.name]: !checks[e.target.name]
-      })
+    fetch(`http://localhost:9292/${query.queryType}-lookup/${query.queryText}`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log("data:", data)
+      setQueryResults(data)
+    })
   }
 
   return(
     <div>
       <h2>Search</h2>
-      <form>
-        <input value={query} onChange={onChangeQuery}/>
-        <select>
-        <option>user</option>
-        <option>course</option>
-      </select><br/>
-        <input checked={checks.all} onChange={checkAll} type="checkbox"  />all
-        <input checked={checks.students} name="students" onChange={onCheckChange} type="checkbox"/>students
-        <input checked={checks.tutors} name="tutors" onChange={onCheckChange} type="checkbox"/>tutors
-
+      <form onSubmit={handleSubmit}>
+        <select name="queryType" value={query.queryType} onChange={onChangeQuery}>
+          <option>user</option>
+          <option>course</option>
+        </select>
+        <input name="queryText" value={query.queryText} onChange={onChangeQuery}/>
+      <input type="submit"/>
       </form>
     </div>
   )
