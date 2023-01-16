@@ -39,4 +39,26 @@ class ApplicationController < Sinatra::Base
     student_info.to_json
   end
 
+  get '/course-lookup/:currentCourse' do 
+
+    student_list = Student.where("current_course like ?", "%#{params[:currentCourse]}%")
+    tutor_list = Tutor.where("courses like ?", "%#{params[:currentCourse]}%")
+
+    combined = student_list+tutor_list
+
+    combined.to_json
+
+  end
+
+  get '/user-lookup/:name' do 
+
+    student_list = Student.where("name like ?", "%#{params[:name]}%")
+    tutor_list = Tutor.where("name like ?", "%#{params[:name]}%")
+
+    combined = student_list+tutor_list
+
+    combined.to_json
+
+  end
+
 end
