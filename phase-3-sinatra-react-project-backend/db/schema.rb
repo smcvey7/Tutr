@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2023_01_10_220134) do
   end
 
   create_table "students", force: :cascade do |t|
+    t.string "position"
     t.string "name"
     t.string "current_course"
     t.integer "current_lesson"
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 2023_01_10_220134) do
   end
 
   create_table "tutors", force: :cascade do |t|
+    t.string "position"
     t.string "name"
     t.string "courses"
     t.string "image_url"
