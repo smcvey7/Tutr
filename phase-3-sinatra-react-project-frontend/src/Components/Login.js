@@ -25,10 +25,11 @@ function Login({setCurrentUser}){
     })
     .then(res=>res.json())
     .then(data=>{
-      console.log("data:", data)
       checkCredentials(data) ? setCurrentUser(data) : alert("User info incorrect. Please try again.")
     })
-    .catch(alert("Username doesn't exist. Please try again."))
+    .catch(function(){
+      alert("Username doesn't exist. Please try again.")
+    })
   }
 
   function checkCredentials(data){

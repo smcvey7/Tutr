@@ -1,10 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import UserTile from "./UserTile";
 
 function Results({results}){
 
-  const [filteredResults, setFilteredResults] = useState(null)
-
+  const [filteredResults, setFilteredResults] = useState(results)
   const [checks, setChecks] = useState({
     all: true,
     student: true,
@@ -12,8 +11,22 @@ function Results({results}){
   })
 
   function changeFilter(){
-    
+    if (results === null) return null
+
+    const filtered = results.filter(user=>{
+      if (checks.tutor && checks.student){
+        return true
+      }else if (checks.student){
+        return user.position === "student"
+      }else return user.postion === "tutor"
+    })
+
+    setFilteredResults(filtered)
   }
+
+  useEffect(()=>{
+    console.log(filteredResults)
+  }, [checks])
 
   function checkAll(){
     checks.all ?
@@ -27,6 +40,8 @@ function Results({results}){
         student: true,
         tutor: true
       })
+
+      changeFilter()
   }
 
   function onCheckChange(e){
@@ -41,6 +56,8 @@ function Results({results}){
         ...checks,
         [e.target.name]: !checks[e.target.name]
       })
+      
+    changeFilter()
   }
 
   return(
@@ -51,7 +68,7 @@ function Results({results}){
         <input checked={checks.tutor} name="tutor" onChange={onCheckChange} type="checkbox"/>tutors
         <br/>
       <div className="flexContainer">
-        {results === null ? <></> :results.map(user=><UserTile key={user.username} user = {user}/>)}
+        {filteredResults === null ? <></> :filteredResults.map(user=><UserTile key={user.username} user = {user}/>)}
       </div>
     </div>
   )
