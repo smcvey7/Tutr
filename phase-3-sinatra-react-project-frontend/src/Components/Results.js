@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import LessonList from "./LessonList";
 import UserTile from "./UserTile";
 
-function Results({user, results}){
+function Results({user, results, currentUser}){
 
   const [filteredResults, setFilteredResults] = useState(results)
   const [checks, setChecks] = useState({
@@ -71,11 +71,11 @@ function Results({user, results}){
       <br/>
       <div className="flexContainer" id="resultsSidePanel">
         <div className="flexContainer" id="resultsFlex">
-          {filteredResults === null ? <></> :filteredResults.map(user=><UserTile key={user.username} user = {user}/>)}
+          {filteredResults === null ? <></> :filteredResults.map(user=><UserTile setShowLessons={setShowLessons} key={user.username} user = {currentUser}/>)}
         </div>
-        <div id="sidePanelFlex">
-          <LessonList tutor={user} />
-        </div>
+        {showLessons ? <div id="sidePanelFlex">
+          <LessonList setShowLessons={setShowLessons} tutor={user} />
+        </div> : null}
       </div>
     </div>
   )

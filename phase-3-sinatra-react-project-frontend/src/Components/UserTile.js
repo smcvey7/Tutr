@@ -1,6 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 
-function UserTile({user}){
+function UserTile({user, setShowLessons, currentUser}){
+
+  const [userLessons, setUserLessons] = useState(null)
+
+  function revealLessons(){
+    setShowLessons(true)
+  }
 
   return(
     <div className="tile">
@@ -11,6 +17,7 @@ function UserTile({user}){
         <div>
           <h4>({user.username})</h4>
           <p>Course: {user.current_course}</p>
+          <button onClick={revealLessons}>current lesson</button>
           <p>Lesson: {user.current_lesson} </p>
         </div> : 
         <div>
