@@ -2,10 +2,6 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
-  get "/" do
-    { message: "Good luck with your project!" }.to_json
-  end
-
   get '/students' do
     students = Student.all
 
@@ -29,14 +25,20 @@ class ApplicationController < Sinatra::Base
 
     student_info = Student.find_by(username: params[:username])
 
-    student_info.to_json
+    student_info.to_json(include: [
+      :lesson,
+      :tutor
+      ])
   end
 
   get '/tutors/user-search/:username' do
 
     student_info = Tutor.find_by(username: params[:username])
 
-    student_info.to_json
+    student_info.to_json(include: [
+      :lessons,
+      :students
+    ])
   end
 
   get '/course-lookup/:currentCourse' do 
