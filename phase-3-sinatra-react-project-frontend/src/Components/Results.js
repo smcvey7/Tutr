@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
+import LessonList from "./LessonList";
 import UserTile from "./UserTile";
 
-function Results({results}){
+function Results({user, results}){
 
   const [filteredResults, setFilteredResults] = useState(results)
   const [checks, setChecks] = useState({
@@ -9,6 +10,7 @@ function Results({results}){
     student: true,
     tutor: true
   })
+  const [showLessons, setShowLessons]= useState(false)
 
   function changeFilter(){
     if (results === null) return null
@@ -63,12 +65,17 @@ function Results({results}){
   return(
     <div>
       <h2>Results</h2>
-        <input checked={checks.all} onChange={checkAll} type="checkbox"  />all
-        <input checked={checks.student} name="student" onChange={onCheckChange} type="checkbox"/>students
-        <input checked={checks.tutor} name="tutor" onChange={onCheckChange} type="checkbox"/>tutors
-        <br/>
-      <div className="flexContainer">
-        {filteredResults === null ? <></> :filteredResults.map(user=><UserTile key={user.username} user = {user}/>)}
+      <input checked={checks.all} onChange={checkAll} type="checkbox"  />all
+      <input checked={checks.student} name="student" onChange={onCheckChange} type="checkbox"/>students
+      <input checked={checks.tutor} name="tutor" onChange={onCheckChange} type="checkbox"/>tutors
+      <br/>
+      <div className="flexContainer" id="resultsSidePanel">
+        <div className="flexContainer" id="resultsFlex">
+          {filteredResults === null ? <></> :filteredResults.map(user=><UserTile key={user.username} user = {user}/>)}
+        </div>
+        <div id="sidePanelFlex">
+          <LessonList tutor={user} />
+        </div>
       </div>
     </div>
   )
