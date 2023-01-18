@@ -7,7 +7,6 @@ class CreateStudents < ActiveRecord::Migration[6.1]
       t.integer :current_lesson
       t.string :username
       t.string :password
-      t.integer :tutor_id
     end
   end
 end

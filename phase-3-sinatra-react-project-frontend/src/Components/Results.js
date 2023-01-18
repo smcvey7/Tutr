@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import LessonList from "./LessonList";
 import UserTile from "./UserTile";
 
-function Results({user, results, currentUser}){
+function Results({results, currentUser}){
 
   const [filteredResults, setFilteredResults] = useState(results)
   const [checks, setChecks] = useState({
@@ -10,7 +10,10 @@ function Results({user, results, currentUser}){
     student: true,
     tutor: true
   })
+
   const [showLessons, setShowLessons]= useState(false)
+
+  const [lessons, setLessons]=useState(null)
 
   function changeFilter(){
     if (results === null) return null
@@ -71,10 +74,10 @@ function Results({user, results, currentUser}){
       <br/>
       <div className="flexContainer" id="resultsSidePanel">
         <div className="flexContainer" id="resultsFlex">
-          {filteredResults === null ? <></> :filteredResults.map(user=><UserTile setShowLessons={setShowLessons} key={user.username} user = {currentUser}/>)}
+          {filteredResults === null ? <></> :filteredResults.map(user=><UserTile setShowLessons={setShowLessons} key={user.username} user = {user}/>)}
         </div>
         {showLessons ? <div id="sidePanelFlex">
-          <LessonList setShowLessons={setShowLessons} tutor={user} />
+          <LessonList setShowLessons={setShowLessons} currentUser={currentUser} />
         </div> : null}
       </div>
     </div>

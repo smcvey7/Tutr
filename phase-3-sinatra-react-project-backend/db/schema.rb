@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2023_01_10_220134) do
     t.integer "current_lesson"
     t.string "username"
     t.string "password"
-    t.integer "tutor_id"
   end
 
   create_table "tutors", force: :cascade do |t|

@@ -26,12 +26,12 @@ img.profilePic{
   width: 75%;
 }
 
-h3#studentPosition{
+h3.studentPosition{
   background-color: blue;
   margin-top: 0px;
 }
 
-h3#tutorPosition{
+h3.tutorPosition{
   background-color: green;
   margin-top: 0px;
 }
