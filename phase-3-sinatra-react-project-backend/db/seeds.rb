@@ -4,88 +4,66 @@ Student.create([
   {
     position: "student",
     name: "Test Student",
-    current_course: "Elvish 203",
-    current_lesson: 6,
     username: "teststudent",
     password:  "password"
   },
   {
     position: "student",
     name: "Pamela Louise",
-    current_course: "German 101",
-    current_lesson: 8,
     username: "pamelalouise",
     password:  "password"
   },
   {
     position: "student",
     name: "David Ward",
-    current_course: "Pig Latin 303",
-    current_lesson: 3,
     username: "davidward",
     password:  "password"
   },
   {
     position: "student",
     name: "Ally Irene",
-    current_course: "Canadian 101",
-    current_lesson: 4,
     username: "allyirene",
     password:  "password"
   },
   {
     position: "student",
     name: "Paul Herman",
-    current_course: "Elvish 202",
-    current_lesson: 10,
     username: "paulherman",
     password:  "password"
   },
   {
     position: "student",
     name: "Yiyi Hou",
-    current_course: "Chinese 203",
-    current_lesson: 13,
     username: "yiyihou",
     password:  "password"
   },
   {
     position: "student",
     name: "Henry Hou",
-    current_course: "Korean 101",
-    current_lesson: 3,
     username: "henryhou",
     password:  "password"
   },
   {
     position: "student",
     name: "Chris Charles",
-    current_course: "German 102",
-    current_lesson: 7,
     username: "chrischarles",
     password:  "password"
   },
   {
     position: "student",
     name: "Staci Jean",
-    current_course: "Spanish 402",
-    current_lesson: 8,
     username: "stacijean",
     password:  "password"
   },
   {
     position: "student",
     name: "Erich James",
-    current_course: "Spanish 201",
-    current_lesson: 12,
     username: "erichjames",
     password:  "password"
   },
   {
     position: "student",
     name: "George James",
-    current_course: "Spanish 302",
-    current_lesson: 8,
     username: "georgejames",
     password:  "password"
   }

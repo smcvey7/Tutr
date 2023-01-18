@@ -26,8 +26,8 @@ class ApplicationController < Sinatra::Base
     student_info = Student.find_by(username: params[:username])
 
     student_info.to_json(include: [
-      :lesson,
-      :tutor
+      :lessons,
+      :tutors
       ])
   end
 
@@ -41,25 +41,38 @@ class ApplicationController < Sinatra::Base
     ])
   end
 
-  get '/course-lookup/:currentCourse' do 
+  get '/course-lookup/:course' do 
 
-    student_list = Student.where("current_course like ?", "%#{params[:currentCourse]}%")
-    tutor_list = Tutor.where("courses like ?", "%#{params[:currentCourse]}%")
+    results = []
 
-    combined = student_list+tutor_list
+    lesson_list = Lesson.where("subject like ?", "%#{params[:course]}%")
 
-    combined.to_json
+    student_list = lesson_list.each do |lesson|
+      results << Student.find(lesson.student_id)
+    end
+
+    puts "student list", student_list
+
+    tutor_list = lesson_list.each do |lesson|
+      results << Tutor.find(lesson.tutor_id)
+    end
+
+    puts "tutor_list", tutor_list
+
+    results.uniq.to_json(include: [
+      :lessons
+    ])
 
   end
 
   get '/user-lookup/:name' do 
 
-    student_list = Student.where("name like ?", "%#{params[:name]}%")
-    tutor_list = Tutor.where("name like ?", "%#{params[:name]}%")
+    results = []
 
-    combined = student_list+tutor_list
+    results << Student.where("name like ?", "%#{params[:name]}%")
+    results << Tutor.where("name like ?", "%#{params[:name]}%")
 
-    combined.to_json
+    results.to_json
 
   end
 

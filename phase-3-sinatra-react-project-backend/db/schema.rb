@@ -26,8 +26,6 @@ ActiveRecord::Schema.define(version: 2023_01_10_220134) do
   create_table "students", force: :cascade do |t|
     t.string "position"
     t.string "name"
-    t.string "current_course"
-    t.integer "current_lesson"
     t.string "username"
     t.string "password"
   end
