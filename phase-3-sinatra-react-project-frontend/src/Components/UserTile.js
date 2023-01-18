@@ -3,6 +3,11 @@ import React, {useState} from "react";
 function UserTile({user, setShowLessons, currentUser}){
 
   const [userLessons, setUserLessons] = useState(null)
+  console.log("userInfo:", currentUser)
+
+  const courses = currentUser.username ? user.lessons.map((lesson)=>{
+    return <li>{lesson.subject}</li>
+  }) : null
 
   function revealLessons(){
     setShowLessons(true)
@@ -16,7 +21,7 @@ function UserTile({user, setShowLessons, currentUser}){
       {user.position === "student" ? 
         <div>
           <h4>({user.username})</h4>
-          <p>Course: {user.current_course}</p>
+          <p>Courses: <ul>{courses}</ul></p>
           <button onClick={revealLessons}>current lesson</button>
         </div> : 
         <div>

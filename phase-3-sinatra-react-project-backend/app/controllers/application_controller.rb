@@ -59,20 +59,18 @@ class ApplicationController < Sinatra::Base
 
     puts "tutor_list", tutor_list
 
-    results.uniq.to_json(include: [
-      :lessons
-    ])
+    results.uniq.to_json(include: :lessons)
 
   end
 
   get '/user-lookup/:name' do 
 
-    results = []
+    student_list = Student.where("name like ?", "%#{params[:name]}%")
+    tutor_list = Tutor.where("name like ?", "%#{params[:name]}%")
 
-    results << Student.where("name like ?", "%#{params[:name]}%")
-    results << Tutor.where("name like ?", "%#{params[:name]}%")
+    combined = student_list+tutor_list
 
-    results.to_json
+    combined.to_json
 
   end
 

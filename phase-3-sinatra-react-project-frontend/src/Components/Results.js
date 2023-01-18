@@ -74,7 +74,7 @@ function Results({results, currentUser}){
       <br/>
       <div className="flexContainer" id="resultsSidePanel">
         <div className="flexContainer" id="resultsFlex">
-          {filteredResults === null ? <></> :filteredResults.map(user=><UserTile setShowLessons={setShowLessons} key={user.username} user = {user}/>)}
+          {filteredResults === null ? <></> :filteredResults.map(user=><UserTile setShowLessons={setShowLessons} key={user.username} currentUser={currentUser} user = {user}/>)}
         </div>
         {showLessons ? <div id="sidePanelFlex">
           <LessonList setShowLessons={setShowLessons} currentUser={currentUser} />
