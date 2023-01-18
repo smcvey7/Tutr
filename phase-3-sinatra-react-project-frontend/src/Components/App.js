@@ -17,8 +17,8 @@ function App() {
   return (
     <div className="App">
       <Header currentUser = {currentUser.username} setCurrentUser = {setCurrentUser} />
-      <Search setQueryResults={setQueryResults}/>
-      <Results results={queryResults}/>
+      {currentUser.username ? <Search setQueryResults={setQueryResults}/> : <p><em>Welcome to TUTR! Please log in above to get started.</em></p>}
+      {currentUser.username ? <Results results={queryResults}/> : <></>}
     </div>
   );
 }
