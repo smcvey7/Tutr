@@ -16,12 +16,6 @@ code {
   text-decoration: underline;
 }
 
-.flexContainer{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
 .tile{
   border-style: solid;
   width: 250px;
@@ -40,4 +34,45 @@ h3#studentPosition{
 h3#tutorPosition{
   background-color: green;
   margin-top: 0px;
+}
+.flexContainer{
+  display: flex;
+}
+
+div#resultsSidePanel{
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+div#resultsFlex{
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-shrink: 2;
+}
+
+div#sidePanelFlex{
+  margin-top: 10px;
+  background-color: blue;
+  flex-shrink: 1;
+  width: 30%;
+}
+
+div.tile{
+  margin: 10px;
+}
+
+div#header{
+  margin: 10px;
+  justify-content: space-between;
+}
+
+h1{
+  margin-top: 0px;
+}
+
+div#login{
+  padding: 10px;
+  border-style: groove;
+  /* border-radius: 5px; */
+  text-align: right;
 }

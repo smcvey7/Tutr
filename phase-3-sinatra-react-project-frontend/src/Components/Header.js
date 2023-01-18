@@ -11,10 +11,10 @@ function Header({currentUser, setCurrentUser}){
   }
 
   return(
-    <>
-      <div><h1>TUTR</h1></div>
-      <div>{currentUser ? <><strong>Welcome {currentUser}</strong><br/><em className="hoverUnderline" onClick={onLogout}>logout</em></> : <Login setCurrentUser={setCurrentUser}/>}</div>
-    </>
+    <div className="flexContainer" id="header">
+      <h1>TUTR</h1>
+      <div id="login">{currentUser ? <><strong>Welcome {currentUser}</strong><br/><em className="hoverUnderline" onClick={onLogout}>logout</em></> : <Login setCurrentUser={setCurrentUser}/>}</div>
+    </div>
   )
 }
 
