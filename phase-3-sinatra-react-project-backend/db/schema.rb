@@ -13,9 +13,10 @@
 ActiveRecord::Schema.define(version: 2023_01_10_220134) do
 
   create_table "lessons", force: :cascade do |t|
-    t.datetime "time"
+    t.text "date"
+    t.text "time"
     t.string "subject"
-    t.string "info"
+    t.integer "info"
     t.string "before_lesson"
     t.string "after_lesson"
     t.integer "grade"

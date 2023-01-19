@@ -18,12 +18,13 @@ code {
 
 .tile{
   border-style: solid;
-  width: 250px;
+  width: 20%;
+  min-width: 250px;
   margin: 20px;
 }
 
 img.profilePic{
-  width: 75%;
+  width: 50%;
 }
 
 h3.studentPosition{
@@ -39,6 +40,10 @@ h3.tutorPosition{
   display: flex;
 }
 
+div.tutorTile{
+  flex-direction: row;
+}
+
 div#resultsSidePanel{
   justify-content: space-between;
   align-items: flex-start;
@@ -48,6 +53,8 @@ div#resultsFlex{
   flex-wrap: wrap;
   justify-content: space-around;
   flex-shrink: 2;
+  flex-wrap: wrap;
+  
 }
 
 div#sidePanelFlex{

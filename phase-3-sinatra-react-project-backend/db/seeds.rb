@@ -154,9 +154,10 @@ Tutor.create([
 
 Lesson.create([
   {
-    time: nil,
+    date: "2023-02-01",
+    time: "14:30",
     subject: "Elvish 203",
-    info: "Lesson 6",
+    info: 6,
     before_lesson: "",
     after_lesson: "",
     grade: nil,
@@ -164,9 +165,9 @@ Lesson.create([
     tutor_id: 10
   },
   {
-    time: nil,
-    subject: "German 101",
-    info: "Lesson 8",
+    date: "2023-02-01",
+    time: "14:30",    subject: "German 101",
+    info: 8,
     before_lesson: "",
     after_lesson: "",
     grade: nil,
@@ -174,9 +175,9 @@ Lesson.create([
     tutor_id: 3
   },
   {
-    time: nil,
-    subject: "Pig Latin 303",
-    info: "Lesson 3",
+    date: "2023-02-01",
+    time: "14:30",    subject: "Pig Latin 303",
+    info: 3,
     before_lesson: "",
     after_lesson: "",
     grade: nil,
@@ -184,9 +185,9 @@ Lesson.create([
     tutor_id: 3
   },
   {
-    time: nil,
-    subject: "Canadian 101",
-    info: "Lesson 4",
+    date: "2023-02-01",
+    time: "14:30",    subject: "Canadian 101",
+    info: 4,
     before_lesson: "",
     after_lesson: "",
     grade: nil,
@@ -194,9 +195,9 @@ Lesson.create([
     tutor_id: 8
   },
   {
-    time: nil,
-    subject: "Elvish 202",
-    info: "Lesson 10",
+    date: "2023-02-01",
+    time: "14:30",    subject: "Elvish 202",
+    info: 10,
     before_lesson: "",
     after_lesson: "",
     grade: nil,
@@ -204,9 +205,9 @@ Lesson.create([
     tutor_id: 10
   },
   {
-    time: nil,
-    subject: "Chinese 203",
-    info: "Lesson 13",
+    date: "2023-02-01",
+    time: "14:30",    subject: "Chinese 203",
+    info: 13,
     before_lesson: "",
     after_lesson: "",
     grade: nil,
@@ -214,9 +215,9 @@ Lesson.create([
     tutor_id: 1
   },
   {
-    time: nil,
-    subject: "Korean 101",
-    info: "Lesson 3",
+    date: "2023-02-01",
+    time: "14:30",    subject: "Korean 101",
+    info: 3,
     before_lesson: "",
     after_lesson: "",
     grade: nil,
@@ -224,9 +225,9 @@ Lesson.create([
     tutor_id: 1
   },
   {
-    time: nil,
-    subject: "German 102",
-    info: "Lesson 7",
+    date: "2023-02-01",
+    time: "14:30",    subject: "German 102",
+    info: 7,
     before_lesson: "",
     after_lesson: "",
     grade: nil,
@@ -234,9 +235,9 @@ Lesson.create([
     tutor_id: 3
   },
   {
-    time: nil,
-    subject: "Spanish 402",
-    info: "Lesson 8",
+    date: "2023-02-01",
+    time: "14:30",    subject: "Spanish 402",
+    info: 8,
     before_lesson: "",
     after_lesson: "",
     grade: nil,
@@ -244,9 +245,9 @@ Lesson.create([
     tutor_id: 2
   },
   {
-    time: nil,
-    subject: "Spanish 201",
-    info: "Lesson 12",
+    date: "2023-02-01",
+    time: "14:30",    subject: "Spanish 201",
+    info: 12,
     before_lesson: "",
     after_lesson: "",
     grade: nil,
@@ -254,14 +255,24 @@ Lesson.create([
     tutor_id: 2
   },
   {
-    time: nil,
-    subject: "Spanish 302",
-    info: "Lesson 8",
+    date: "2023-02-01",
+    time: "14:30",    subject: "Spanish 302",
+    info: 8,
     before_lesson: "",
     after_lesson: "",
     grade: nil,
     student_id: 11,
     tutor_id: 2
+  },
+  {
+    date: "2023-02-01",
+    time: "14:30",    subject: "Elvish 301",
+    info: 9,
+    before_lesson: "",
+    after_lesson: "",
+    grade: nil,
+    student_id: 9,
+    tutor_id: 10
   }
 ])
 
