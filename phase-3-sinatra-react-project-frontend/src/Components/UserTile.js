@@ -1,28 +1,26 @@
 import React, {useState} from "react";
 
-function UserTile({user, setShowLessons, currentUser}){
-
-  const [userLessons, setUserLessons] = useState(null)
-  console.log("userInfo:", currentUser)
+function UserTile({user, setShowLessons, currentUser, setLessonsInfo}){
 
   const courses = currentUser.username ? user.lessons.map((lesson)=>{
-    return <li>{lesson.subject}</li>
+    return <li key={lesson.subject}>{lesson.subject}</li>
   }) : null
 
   function revealLessons(){
     setShowLessons(true)
+    setLessonsInfo(user.lessons)
   }
 
   return(
     <div className="tile">
-      <h3 class={user.position === "student" ? "studentPosition" : "tutorPosition"}>{user.position}</h3>
+      <h3 className={user.position === "student" ? "studentPosition" : "tutorPosition"}>{user.position}</h3>
       <h3>{user.name}</h3>
       <div>
       {user.position === "student" ? 
         <div>
           <h4>({user.username})</h4>
-          <p>Courses: <ul>{courses}</ul></p>
-          <button onClick={revealLessons}>current lesson</button>
+          <p>Courses: </p>
+          <ul>{courses}</ul>
         </div> : 
         <div>
           <img className="profilePic" src={user.image_url}></img>
@@ -30,6 +28,8 @@ function UserTile({user, setShowLessons, currentUser}){
           <button>Book a lesson!</button>
         </div>
       }
+      <button onClick={revealLessons}>Lessons</button>
+
       </div>
       
     </div>

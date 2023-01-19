@@ -41,7 +41,7 @@ h3.tutorPosition{
 
 div#resultsSidePanel{
   justify-content: space-between;
-  align-items: stretch;
+  align-items: flex-start;
 }
 
 div#resultsFlex{
@@ -74,4 +74,11 @@ div#login{
   padding: 10px;
   border-style: groove;
   text-align: right;
+}
+
+div.lessonTile{
+  border-style: solid;
+  background-color: white;
+  margin: 10px;
+  text-align: left;
 }

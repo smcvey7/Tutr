@@ -5,15 +5,16 @@ import UserTile from "./UserTile";
 function Results({results, currentUser}){
 
   const [filteredResults, setFilteredResults] = useState(results)
+
   const [checks, setChecks] = useState({
     all: true,
     student: true,
     tutor: true
   })
 
-  const [showLessons, setShowLessons]= useState(false)
+  const [lessonsInfo, setLessonsInfo] = useState(null)
 
-  const [lessons, setLessons]=useState(null)
+  const [showLessons, setShowLessons]= useState(false)
 
   function changeFilter(){
     if (results === null) return null
@@ -74,10 +75,10 @@ function Results({results, currentUser}){
       <br/>
       <div className="flexContainer" id="resultsSidePanel">
         <div className="flexContainer" id="resultsFlex">
-          {filteredResults === null ? <></> :filteredResults.map(user=><UserTile setShowLessons={setShowLessons} key={user.username} currentUser={currentUser} user = {user}/>)}
+          {filteredResults === null ? <></> :filteredResults.map(user=><UserTile setLessonsInfo={setLessonsInfo} setShowLessons={setShowLessons} key={user.username} currentUser={currentUser} user = {user}/>)}
         </div>
         {showLessons ? <div id="sidePanelFlex">
-          <LessonList setShowLessons={setShowLessons} currentUser={currentUser} />
+          <LessonList lessonsInfo={lessonsInfo} setShowLessons={setShowLessons} currentUser={currentUser} />
         </div> : null}
       </div>
     </div>
