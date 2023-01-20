@@ -14,11 +14,49 @@ function App() {
 
   const [queryResults, setQueryResults] = useState(null)
 
+  const [filteredResults, setFilteredResults] = useState(queryResults)
+
+  function handleQueryResults(data){
+    setQueryResults(data)
+  }
+
+  function handleFilter(results){
+    setFilteredResults(results)
+  }
+
+  function handleUpdatedLesson(updatedLesson){
+    const filteredResults = queryResults.map((user)=>{
+      return {
+        ...user,
+        lessons: user.lessons.map((lesson)=>{
+          if (lesson.id === updatedLesson.id){
+            return updatedLesson
+          }else{
+             return lesson
+            }
+        })
+      }
+    })
+
+    setQueryResults(filteredResults)
+  }
+
+  function handleDeletedLesson(id){
+    const filteredResults = queryResults.map((user)=>{
+      return {
+        ...user,
+        lessons: user.lessons.filter((lesson)=>lesson.id !== id)
+      }
+    })
+
+    setQueryResults(filteredResults)
+  }
+
   return (
     <div className="App">
       <Header currentUser = {currentUser.username} setCurrentUser = {setCurrentUser} />
-      {currentUser.username ? <Search setQueryResults={setQueryResults}/> : <p><em>Welcome to TUTR! Please log in above to get started.</em></p>}
-      {currentUser.username ? <Results results={queryResults} currentUser={currentUser}/> : <></>}
+      {currentUser.username ? <Search handleQueryResults={handleQueryResults}/> : <p><em>Welcome to TUTR! Please log in above to get started.</em></p>}
+      {currentUser.username ? <Results results={queryResults} handleFilter={handleFilter} filteredResults={filteredResults} currentUser={currentUser} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson} /> : <></>}
     </div>
   );
 }

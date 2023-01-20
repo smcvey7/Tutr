@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react";
 import LessonList from "./LessonList";
 import UserTile from "./UserTile";
 
-function Results({results, currentUser}){
+function Results({results, currentUser, handleUpdatedLesson, handleDeletedLesson, handleFilter, filteredResults }){
 
-  const [filteredResults, setFilteredResults] = useState(results)
+  
 
   const [checks, setChecks] = useState({
     all: true,
@@ -20,19 +20,19 @@ function Results({results, currentUser}){
     if (results === null) return null
 
     const filtered = results.filter(user=>{
-      if (checks.tutor && checks.student){
+      if (checks.all){
         return true
-      }else if (checks.student){
+      }else if (checks.student && checks.tutor){
+        return true
+      }else if (checks.student && !checks.tutor){
         return user.position === "student"
-      }else return user.postion === "tutor"
+      }else if (checks.tutor && !checks.student){
+        return user.position === "tutor"
+      }else return false
     })
 
-    setFilteredResults(filtered)
+    handleFilter(filtered)
   }
-
-  useEffect(()=>{
-    console.log(filteredResults)
-  }, [checks])
 
   function checkAll(){
     checks.all ?
@@ -78,7 +78,7 @@ function Results({results, currentUser}){
           {filteredResults === null ? <></> :filteredResults.map(user=><UserTile setLessonsInfo={setLessonsInfo} setShowLessons={setShowLessons} key={user.username} currentUser={currentUser} user = {user}/>)}
         </div>
         {showLessons ? <div id="sidePanelFlex">
-          <LessonList lessonsInfo={lessonsInfo} setShowLessons={setShowLessons} currentUser={currentUser} />
+          <LessonList lessonsInfo={lessonsInfo} setShowLessons={setShowLessons} currentUser={currentUser} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson} />
         </div> : null}
       </div>
     </div>

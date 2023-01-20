@@ -1,9 +1,9 @@
 import React from "react";
 import LessonTile from "./LessonTile";
 
-function LessonList({lessonsInfo, setShowLessons}){
+function LessonList({lessonsInfo, setShowLessons, handleUpdatedLesson, handleDeletedLesson}){
 
-  const lessonTiles = lessonsInfo ? lessonsInfo.map((lesson)=><LessonTile key={lesson.id} lesson={lesson}/>) : null
+  const lessonTiles = lessonsInfo ? lessonsInfo.map((lesson)=><LessonTile key={lesson.id} lesson={lesson} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson} />) : null
 
   function hideLessons(){
     setShowLessons(false)

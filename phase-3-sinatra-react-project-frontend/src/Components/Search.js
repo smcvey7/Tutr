@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function Search({setQueryResults}){
+function Search({handleQueryResults}){
   const [query, setQuery] = useState({
     queryType: "user",
     queryText: ""
@@ -16,6 +16,10 @@ function Search({setQueryResults}){
   function handleSubmit(e){
     e.preventDefault()
 
+    if (query.queryText === ""){
+      return null
+    }
+
     fetch(`http://localhost:9292/${query.queryType}-lookup/${query.queryText}`, {
       method: "GET",
       headers: {
@@ -24,8 +28,7 @@ function Search({setQueryResults}){
     })
     .then(res=>res.json())
     .then(data=>{
-      console.log("data:", data)
-      setQueryResults(data)
+      handleQueryResults(data)
     })
   }
 

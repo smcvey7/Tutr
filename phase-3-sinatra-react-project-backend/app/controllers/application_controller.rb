@@ -94,4 +94,25 @@ class ApplicationController < Sinatra::Base
 
   end
 
+  patch '/edit-lesson/:id' do
+
+    lesson = Lesson.find(params[:id])
+
+    lesson.update(
+      date: params[:date],
+      time: params[:time],
+      info: params[:info],
+      before_lesson: params[:beforeLesson],
+      after_lesson: params[:afterLesson]
+    )
+
+    lesson.to_json
+  end
+
+  delete '/delete-lesson/:id' do
+    lesson = Lesson.find(params[:id])
+
+    lesson.destroy
+  end
+
 end

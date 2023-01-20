@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import LessonEditForm from "./LessonEditForm";
 
-function LessonTile({lesson}){
+function LessonTile({lesson, handleUpdatedLesson, handleDeletedLesson}){
 
   const [isEditing, setIsEditing] = useState(false)
 
@@ -14,7 +14,7 @@ function LessonTile({lesson}){
       <strong>tutor: </strong>{lesson.tutor.name}<br/>
       <strong>student: </strong>{lesson.student.username}<br/>
       <strong>course: </strong>{lesson.subject}<br/>
-      <LessonEditForm isEditing={isEditing} lesson={lesson} revealEdit={revealEdit} />
+      <LessonEditForm isEditing={isEditing} lesson={lesson} revealEdit={revealEdit} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson} />
     </div>
   )
 }
