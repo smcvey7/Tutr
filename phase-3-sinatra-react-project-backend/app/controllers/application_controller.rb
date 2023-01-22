@@ -115,4 +115,28 @@ class ApplicationController < Sinatra::Base
     lesson.destroy
   end
 
+  get '/student-tutor-list' do
+
+    list = {
+      tutor_list: [],
+      student_list: []
+    }
+
+    Tutor.all.each do |tutor|
+        list[:tutor_list] << {
+          username: tutor.username,
+          id: tutor.id
+        }
+    end
+
+    Student.all.each do |student|
+      list[:student_list] << {
+        username: student.username,
+        id: student.id
+      }
+    end
+
+    list.to_json
+  end
+
 end

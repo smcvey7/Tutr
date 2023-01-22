@@ -54,7 +54,7 @@ div#resultsFlex{
   justify-content: space-around;
   flex-shrink: 2;
   flex-wrap: wrap;
-  
+
 }
 
 div#sidePanelFlex{
@@ -88,4 +88,11 @@ div.lessonTile{
   background-color: white;
   margin: 10px;
   text-align: left;
+}
+
+div#searchOrCreate{
+display: flex;
+flex-direction: row;
+align-items: center  ;
+justify-content: space-around;
 }

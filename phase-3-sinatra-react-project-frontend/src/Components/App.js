@@ -3,6 +3,7 @@ import '../App.css';
 import Header from './Header';
 import Search from './Search';
 import Results from './Results';
+import CreateNewLesson from '../CreateNewLesson';
 
 function App() {
 
@@ -10,6 +11,8 @@ function App() {
     username: null,
     password: null
   })
+
+  const [revealCreateLesson, setRevealCreateLesson] = useState(false)
 
 
   const [queryResults, setQueryResults] = useState(null)
@@ -55,8 +58,16 @@ function App() {
   return (
     <div className="App">
       <Header currentUser = {currentUser.username} setCurrentUser = {setCurrentUser} />
-      {currentUser.username ? <Search handleQueryResults={handleQueryResults}/> : <p><em>Welcome to TUTR! Please log in above to get started.</em></p>}
-      {currentUser.username ? <Results results={queryResults} handleFilter={handleFilter} filteredResults={filteredResults} currentUser={currentUser} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson} /> : <></>}
+      {currentUser.username ? <div>
+        <div>
+          <div id='searchOrCreate'>
+            <Search handleQueryResults={handleQueryResults}/>
+            <h2>OR</h2>
+            <CreateNewLesson/>
+          </div>
+        </div>
+        <Results results={queryResults} handleFilter={handleFilter} filteredResults={filteredResults} currentUser={currentUser} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson}/>
+      </div> : <p><em>Welcome to TUTR! Please log in above to get started.</em></p>}
     </div>
   );
 }
