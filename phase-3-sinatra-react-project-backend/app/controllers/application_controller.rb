@@ -101,9 +101,7 @@ class ApplicationController < Sinatra::Base
     lesson.update(
       date: params[:date],
       time: params[:time],
-      info: params[:info],
-      before_lesson: params[:beforeLesson],
-      after_lesson: params[:afterLesson]
+      info: params[:info]
     )
 
     lesson.to_json
@@ -125,7 +123,8 @@ class ApplicationController < Sinatra::Base
     Tutor.all.each do |tutor|
         list[:tutor_list] << {
           username: tutor.username,
-          id: tutor.id
+          id: tutor.id,
+          courses: tutor.courses
         }
     end
 
@@ -137,6 +136,19 @@ class ApplicationController < Sinatra::Base
     end
 
     list.to_json
+  end
+
+  post '/create-lesson' do
+    newLesson = Lesson.create(
+      date: params[:date],
+      time: params[:time],
+      info: params[:info],
+      tutor_id: params[:tutor_id],
+      student_id: params[:student_id],
+      subject: params[:subject]
+    )
+
+    newLesson.to_json
   end
 
 end

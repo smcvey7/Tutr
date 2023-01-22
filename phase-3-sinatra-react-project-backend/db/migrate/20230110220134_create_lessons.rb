@@ -5,9 +5,6 @@ class CreateLessons < ActiveRecord::Migration[6.1]
       t.text :time
       t.string :subject
       t.integer :info
-      t.string :before_lesson
-      t.string :after_lesson
-      t.integer :grade
       t.integer :student_id
       t.integer :tutor_id
     end

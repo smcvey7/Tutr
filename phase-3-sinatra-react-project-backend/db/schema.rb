@@ -17,9 +17,6 @@ ActiveRecord::Schema.define(version: 2023_01_10_220134) do
     t.text "time"
     t.string "subject"
     t.integer "info"
-    t.string "before_lesson"
-    t.string "after_lesson"
-    t.integer "grade"
     t.integer "student_id"
     t.integer "tutor_id"
   end

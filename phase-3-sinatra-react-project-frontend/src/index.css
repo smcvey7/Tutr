@@ -96,3 +96,14 @@ flex-direction: row;
 align-items: center  ;
 justify-content: space-around;
 }
+
+form#newLessonForm{
+  text-align: left;
+  flex-direction: column;
+
+}
+
+form#newLessonForm > label > input{
+  width: 100%;
+  margin-bottom: 3px;
+}

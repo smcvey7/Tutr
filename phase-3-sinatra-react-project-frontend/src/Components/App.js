@@ -55,6 +55,28 @@ function App() {
     setQueryResults(filteredResults)
   }
 
+  function handleAddLesson(lessonInfo){
+    queryResults.map(user=>{
+      if (user.position === "tutor" && user.id ===lessonInfo.tutor_id){
+        return {
+          ...user,
+          lessons: [
+            ...user.lessons,
+            lessonInfo
+          ]
+        }
+      }else if (user.position === "student" && user.id ===lessonInfo.student_id) {
+        return {
+          ...user,
+          lessons: [
+            ...user.lessons,
+            lessonInfo
+          ]
+        }
+      }else return user
+    })
+  }
+
   return (
     <div className="App">
       <Header currentUser = {currentUser.username} setCurrentUser = {setCurrentUser} />
@@ -63,7 +85,7 @@ function App() {
           <div id='searchOrCreate'>
             <Search handleQueryResults={handleQueryResults}/>
             <h2>OR</h2>
-            <CreateNewLesson/>
+            <CreateNewLesson handleAddLesson={handleAddLesson} />
           </div>
         </div>
         <Results results={queryResults} handleFilter={handleFilter} filteredResults={filteredResults} currentUser={currentUser} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson}/>

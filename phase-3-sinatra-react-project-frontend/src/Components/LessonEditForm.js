@@ -5,9 +5,7 @@ function LessonEditForm({revealEdit, isEditing, lesson, handleUpdatedLesson, han
   const [lessonInfo, setLessonInfo]=useState({
     info: lesson.info,
     time: lesson.time,
-    date: lesson.date,
-    beforeLesson: lesson.before_lesson,
-    afterLesson: lesson.after_lesson
+    date: lesson.date
   })
 
   function handleChange(e){
@@ -53,10 +51,8 @@ function LessonEditForm({revealEdit, isEditing, lesson, handleUpdatedLesson, han
   return(
     <form onSubmit={handlesubmit}>
         <strong>lesson: </strong>{isEditing ? <input type="number" value={lessonInfo.info} name="info" onChange={handleChange}></input> : <>{lessonInfo.info}</>}<br/>
-        <strong>appointment: </strong>{isEditing ? <input type="date" value={lessonInfo.date} name="date" onChange={handleChange}></input> : <>{lessonInfo.date}</>}<br/>
-        <strong>appointment: </strong>{isEditing ? <input type="time" value={lessonInfo.time} name="time" onChange={handleChange}></input> : <>{lessonInfo.time}</>}<br/>
-        <strong>pre-lesson: </strong>{isEditing ? <input value={lessonInfo.beforeLesson} name="beforeLesson" onChange={handleChange}></input> : <>{lessonInfo.beforeLesson}</>}<br/>
-        <strong>post-lesson: </strong>{isEditing ? <input value={lessonInfo.afterLesson} name="afterLesson" onChange={handleChange}></input> : <>{lessonInfo.afterLesson}</>}<br/>
+        <strong>date: </strong>{isEditing ? <input type="date" value={lessonInfo.date} name="date" onChange={handleChange}></input> : <>{lessonInfo.date}</>}<br/>
+        <strong>time: </strong>{isEditing ? <input type="time" value={lessonInfo.time} name="time" onChange={handleChange}></input> : <>{lessonInfo.time}</>}<br/>
         {isEditing ? 
           <div>
             <input type="submit"/><button onClick={()=>revealEdit(false)}>cancel</button><button onClick={handleDelete}>delete</button>
