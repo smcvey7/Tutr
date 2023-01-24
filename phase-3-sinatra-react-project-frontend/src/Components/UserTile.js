@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 
 function UserTile({user, setShowLessons, currentUser, setLessonsInfo}){
 
   const courses = currentUser.username ? user.lessons.map((lesson)=>{
-    return <li key={lesson.subject}>{lesson.subject}</li>
+    return <li key={lesson.subject+lesson.info}>{lesson.subject}-{lesson.info}</li>
   }) : null
 
   function revealLessons(){
@@ -12,28 +12,25 @@ function UserTile({user, setShowLessons, currentUser, setLessonsInfo}){
   }
 
   return(
-    <div className="tile">
+    <div className={user.position === "student" ? "studentTile" : "tutorTile"}>
       <h3 className={user.position === "student" ? "studentPosition" : "tutorPosition"}>{user.position}</h3>
-      <div>
       {user.position === "student" ? 
-        <div className="studentTile">
-          <h3>{user.name}</h3>
+        <div>
+          <h3 className="noMargin">{user.name}</h3>
           <h4>({user.username})</h4>
           <strong>Courses: </strong>
           <ul>{courses}</ul>
-          <button onClick={revealLessons}>Lessons</button>
         </div> : 
-        <div className=" flexContainer tutorTile">
+        <div className="tutorSubTile">
           <img className="profilePic" src={user.image_url}></img>
           <div>
             <h3>{user.name}</h3>
-            <strong>Courses offered: {user.courses}</strong>
-            <button onClick={revealLessons}>Lessons</button>
+            <p id="coursesOffered"><strong>Courses offered:</strong><br/>
+            {user.courses}</p>
           </div>
         </div>
       }
-      </div>
-      
+      <button id="lessonsButton" onClick={revealLessons}>Lessons</button>
     </div>
   )
 }

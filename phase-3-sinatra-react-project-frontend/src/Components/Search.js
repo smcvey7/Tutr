@@ -30,19 +30,28 @@ function Search({handleQueryResults}){
     .then(data=>{
       handleQueryResults(data)
     })
+
+    setQuery({
+      ...query,
+      queryText: ""
+    })
   }
 
   return(
-    <div>
+    <div id="searchDiv">
       <h2>Search</h2>
-      <form onSubmit={handleSubmit}>
-        <select name="queryType" value={query.queryType} onChange={onChangeQuery}>
-          <option>user</option>
-          <option>course</option>
-        </select>
-        <input name="queryText" value={query.queryText} onChange={onChangeQuery}/>
-      <input type="submit"/>
-      </form>
+      <div id="alignRight">
+        <form onSubmit={handleSubmit}>
+          <div className="flexContainer">
+            <select id="searchSelect" name="queryType" value={query.queryType} onChange={onChangeQuery}>
+              <option>user</option>
+              <option>course</option>
+            </select>
+            <input id="search" name="queryText" value={query.queryText} onChange={onChangeQuery}/>
+          </div>
+          <input type="submit"/>
+        </form>
+      </div>
     </div>
   )
 }

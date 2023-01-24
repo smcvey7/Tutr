@@ -51,8 +51,8 @@ function LessonEditForm({revealEdit, isEditing, lesson, handleUpdatedLesson, han
   return(
     <form onSubmit={handlesubmit}>
         <strong>lesson: </strong>{isEditing ? <input type="number" value={lessonInfo.info} name="info" onChange={handleChange}></input> : <>{lessonInfo.info}</>}<br/>
-        <strong>date: </strong>{isEditing ? <input type="date" value={lessonInfo.date} name="date" onChange={handleChange}></input> : <>{lessonInfo.date}</>}<br/>
-        <strong>time: </strong>{isEditing ? <input type="time" value={lessonInfo.time} name="time" onChange={handleChange}></input> : <>{lessonInfo.time}</>}<br/>
+        <strong>date: </strong><br/>{isEditing ? <input type="date" value={lessonInfo.date} name="date" onChange={handleChange}></input> : <>{lessonInfo.date}</>}<br/>
+        <strong>time: </strong><br/>{isEditing ? <input type="time" value={lessonInfo.time} name="time" onChange={handleChange}></input> : <>{lessonInfo.time}</>}<br/>
         {isEditing ? 
           <div>
             <input type="submit"/><button onClick={()=>revealEdit(false)}>cancel</button><button onClick={handleDelete}>delete</button>

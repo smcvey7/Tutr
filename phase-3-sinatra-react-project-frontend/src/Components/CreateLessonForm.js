@@ -2,8 +2,6 @@ import React, {useState} from "react";
 
 function CreateLessonForm({userList, handleAddLesson}){
 
-  const today = new Date()
-
   const [newLessonData, setNewLessonData] = useState({
     date: "",
     time: "",
@@ -12,7 +10,6 @@ function CreateLessonForm({userList, handleAddLesson}){
     student_id: "0",
     tutor_id: "0"
   })
-
 
   function handleChange(e){
     const updatedLesson = {
@@ -40,8 +37,14 @@ function CreateLessonForm({userList, handleAddLesson}){
     .then(res=>res.json())
     .then(data=>{
       handleAddLesson(data)
-      console.log("lesson posted", data)
-    })
+setNewLessonData({
+  date: "",
+  time: "",
+  subject: "",
+  info: 1,
+  student_id: "0",
+  tutor_id: "0"
+})    })
 
   }
 
@@ -57,7 +60,7 @@ function CreateLessonForm({userList, handleAddLesson}){
         {userList ? userList[1] :  null}
       </select>
       <label>course:
-        <input name="subject" value={newLessonData.subject} onChange={handleChange} ></input>
+        <input name="subject" placeholder="course name" value={newLessonData.subject} onChange={handleChange} ></input>
       </label>
       <label>lesson:
         <input type="number" min="1" name="info" value={newLessonData.info} onChange={handleChange} ></input>
@@ -68,7 +71,7 @@ function CreateLessonForm({userList, handleAddLesson}){
       <label>time:
         <input type="time" name="time" value={newLessonData.time} onChange={handleChange} ></input>
       </label>
-      <input type="submit" value="add lesson"></input>
+      <input id="addLessonSubmit" type="submit" value="add lesson"></input>
     </form>
   )
 }

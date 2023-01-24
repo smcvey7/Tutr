@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import '../App.css';
 import Header from './Header';
 import Search from './Search';
@@ -12,19 +12,12 @@ function App() {
     password: null
   })
 
-  const [revealCreateLesson, setRevealCreateLesson] = useState(false)
-
+  // const [revealCreateLesson, setRevealCreateLesson] = useState(false)
 
   const [queryResults, setQueryResults] = useState(null)
 
-  const [filteredResults, setFilteredResults] = useState(queryResults)
-
   function handleQueryResults(data){
     setQueryResults(data)
-  }
-
-  function handleFilter(results){
-    setFilteredResults(results)
   }
 
   function handleUpdatedLesson(updatedLesson){
@@ -78,18 +71,20 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div id="app">
       <Header currentUser = {currentUser.username} setCurrentUser = {setCurrentUser} />
-      {currentUser.username ? <div>
+      {currentUser.username ? 
         <div>
-          <div id='searchOrCreate'>
-            <Search handleQueryResults={handleQueryResults}/>
-            <h2>OR</h2>
+          <div>
+            <div id='searchOrCreate'>
             <CreateNewLesson handleAddLesson={handleAddLesson} />
+
+              <Search handleQueryResults={handleQueryResults}/>
+            </div>
           </div>
-        </div>
-        <Results results={queryResults} handleFilter={handleFilter} filteredResults={filteredResults} currentUser={currentUser} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson}/>
-      </div> : <p><em>Welcome to TUTR! Please log in above to get started.</em></p>}
+          {queryResults ? <Results results={queryResults} currentUser={currentUser} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson}/> : null}
+        </div> :
+        <p id='welcomeMessage' ><em>Welcome to TUTR! Please log in to get started.</em></p>}
     </div>
   );
 }
