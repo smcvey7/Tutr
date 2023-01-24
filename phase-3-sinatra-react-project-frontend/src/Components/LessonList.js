@@ -13,7 +13,9 @@ function LessonList({lessonsInfo, setShowLessons, handleUpdatedLesson, handleDel
     <div>
       <h2 id="lessonTitle">Lessons</h2>
       <button id="hide" onClick={hideLessons}>hide</button>
-      {lessonTiles}
+      <div id="sidebar">
+        {lessonTiles}
+      </div>
     </div>
   )
 }

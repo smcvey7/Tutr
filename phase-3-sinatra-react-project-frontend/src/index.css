@@ -59,10 +59,19 @@ div.studentTile{
   border-style: none;
 }
 
-button#lessonsButton{
+div#sidebar{
+  background-color:#D8737Fd0;
+  border-style: none;
+  padding: 10px 0px 10px 0px;
+  border-color:#D8737Fd0;
+  border-radius: 20px;
+  border-width: 3px;
+}
+
+/* button#lessonsButton{
   width: 100px;
   margin-bottom: 10px;
-}
+} */
 
 div.tutorTile{
   border-style: none;
@@ -164,14 +173,24 @@ div#login{
   border-style: none;
 }
 
+.white{
+  color: white;
+}
+
 div.lessonTile{
   color: white;
-  border-style: none;
+  border-style: solid;
   border-radius: 30px;
-  background-color: #685D79;
-  margin: 10px 10px 20px 10px;
+  background-color: #685D79d0;
+  border-color: #475C7Ad0;
+  border-width: 10px;
+  margin: 10px;
   text-align: left;
   padding: 15px;
+}
+
+div.lessonTile:hover{
+  background-color: #685D79;
 }
 
 h2#lessonTitle{
@@ -234,3 +253,79 @@ input#search{
 div#alignRight{
   text-align: right;
 }
+
+
+
+div.userTileNew{
+  flex-direction: row;
+  margin: 15px;
+  padding: 0px;
+  width: 25%;
+  min-width: 250px;
+}
+
+h3.tileLabelStudent{
+  writing-mode: vertical-lr;
+  transform: scale(-1, -1);
+  background-color: #fcbc6dd0;
+  border-radius: 0px 20px 20px 0px;
+  margin: 0px;
+}
+
+h3.tileLabelTutor{
+  writing-mode: vertical-lr;
+  transform: scale(-1, -1);
+  background-color: #D8737Fd0;
+  border-radius: 0px 20px 20px 0px;
+  margin: 0px;
+}
+
+
+div#tileMainStudent{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #d8737fd0;
+  padding: 15px;
+  border-radius: 0px 20px 20px 0px;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+div#tileMainStudent:hover{
+  background-color: #d8737f;
+}
+
+div#tileMainTutor{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #FCBB6Dd0;
+  padding: 15px;
+  border-radius: 0px 20px 20px 0px;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+div#tileMainTutor:hover{
+  background-color: #FCBB6D;
+}
+
+.noMargin{
+  margin: 0px;
+}
+
+h3, h4{
+  text-align: center;
+}
+
+div#courseList{
+  color: white;
+ }
+
+ img.profilePicNew{
+  width: 50%;
+  max-height: 30%;
+  object-fit: cover;
+  margin: 0 auto 0 auto;
+ }
