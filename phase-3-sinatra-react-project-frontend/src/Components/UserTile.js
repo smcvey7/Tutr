@@ -17,14 +17,14 @@ function UserTile({user, setShowLessons, currentUser, setLessonsInfo}){
       {user.position === "student" ? 
         <div>
           <h3 className="noMargin">{user.name}</h3>
-          <h4>({user.username})</h4>
+          <h4>@{user.username}</h4>
           <strong>Courses: </strong>
           <ul>{courses}</ul>
         </div> : 
         <div className="tutorSubTile">
           <img className="profilePic" src={user.image_url}></img>
           <div>
-            <h3>{user.name}</h3>
+            <h3>@{user.name}</h3>
             <p id="coursesOffered"><strong>Courses offered:</strong><br/>
             {user.courses}</p>
           </div>
