@@ -12,8 +12,6 @@ function App() {
     password: null
   })
 
-  // const [revealCreateLesson, setRevealCreateLesson] = useState(false)
-
   const [queryResults, setQueryResults] = useState(null)
 
   function handleQueryResults(data){
@@ -70,9 +68,19 @@ function App() {
     })
   }
 
+  function onLogout(){
+    setCurrentUser({
+      username: null,
+      password: null
+    })
+
+    setQueryResults(null)
+
+  }
+
   return (
     <div id="app">
-      <Header currentUser = {currentUser.username} setCurrentUser = {setCurrentUser} />
+      <Header currentUser = {currentUser.username} setCurrentUser = {setCurrentUser} onLogout={onLogout} />
       {currentUser.username ? 
         <div>
           <div>

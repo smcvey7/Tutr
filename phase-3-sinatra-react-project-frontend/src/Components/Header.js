@@ -1,14 +1,7 @@
 import React from "react";
 import Login from "./Login";
 
-function Header({currentUser, setCurrentUser}){
-
-  function onLogout(){
-    setCurrentUser({
-      username: null,
-      password: null
-    })
-  }
+function Header({currentUser, setCurrentUser, onLogout}){
 
   return(
     <div className="flexContainer" id="header">
