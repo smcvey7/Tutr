@@ -10,9 +10,11 @@ function LessonList({lessonsInfo, setShowLessons, handleUpdatedLesson, handleDel
   }
 
   return(
-    <div>
-      <h2 id="lessonTitle">Lessons</h2>
-      <button id="hide" onClick={hideLessons}>hide</button>
+    <div id="sidebarContainer">
+      <div id="lessonDiv">
+        <h2 id="lessonTitle">Lessons</h2>
+        <button id="hide" onClick={hideLessons}>hide</button>
+      </div>
       <div id="sidebar">
         {lessonTiles}
       </div>

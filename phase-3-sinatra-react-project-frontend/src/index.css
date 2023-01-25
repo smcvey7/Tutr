@@ -59,13 +59,19 @@ div.studentTile{
   border-style: none;
 }
 
+div#sidePanelFlex{
+  width: 20%;
+}
+
+
 div#sidebar{
-  background-color:#D8737Fd0;
-  border-style: none;
+  /* background-color:#D8737Fd0; */
+  border-style: solid;
+  margin-right: 30px;
   padding: 10px 0px 10px 0px;
-  border-color:#D8737Fd0;
+  border-color:#FCBB6D;
   border-radius: 20px;
-  border-width: 3px;
+  border-width: 6px;
 }
 
 /* button#lessonsButton{
@@ -127,6 +133,7 @@ div#resultsFlex{
   justify-content: space-around;
   flex-shrink: 2;
   flex-wrap: wrap;
+  padding-top: 45px;
 }
 
 h2#resultsTitle{
@@ -179,12 +186,10 @@ div#login{
 
 div.lessonTile{
   color: white;
-  border-style: solid;
   border-radius: 30px;
   background-color: #685D79d0;
-  border-color: #475C7Ad0;
   border-width: 10px;
-  margin: 10px;
+  margin-bottom: 10px;
   text-align: left;
   padding: 15px;
 }
@@ -195,6 +200,19 @@ div.lessonTile:hover{
 
 h2#lessonTitle{
   display: inline;
+  color: white;
+}
+
+div#editButtons{
+  flex-wrap: wrap;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-start;
+}
+
+div#lessonDiv{
+  text-align: center;
 }
 
 div#searchOrCreate{
