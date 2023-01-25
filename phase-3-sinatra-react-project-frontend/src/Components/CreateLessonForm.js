@@ -20,6 +20,17 @@ function CreateLessonForm({userList, handleAddLesson}){
     setNewLessonData(updatedLesson)
   }
 
+  function resetForm(){
+    setNewLessonData({
+      date: "",
+      time: "",
+      subject: "",
+      info: 1,
+      student_id: "0",
+      tutor_id: "0"
+    })
+  }
+
   function handleSubmit(e){
     e.preventDefault()
 
@@ -37,15 +48,10 @@ function CreateLessonForm({userList, handleAddLesson}){
     .then(res=>res.json())
     .then(data=>{
       handleAddLesson(data)
-setNewLessonData({
-  date: "",
-  time: "",
-  subject: "",
-  info: 1,
-  student_id: "0",
-  tutor_id: "0"
-})    })
 
+    })
+    resetForm()
+    alert("New lesson created")
   }
 
   return(
@@ -62,7 +68,7 @@ setNewLessonData({
       <label>course:
         <input name="subject" placeholder="course name" value={newLessonData.subject} onChange={handleChange} ></input>
       </label>
-      <label>lesson:
+      <label id="numberInput">lesson:
         <input type="number" min="1" name="info" value={newLessonData.info} onChange={handleChange} ></input>
       </label>
       <label>date:

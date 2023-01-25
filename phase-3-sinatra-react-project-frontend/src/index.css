@@ -211,6 +211,15 @@ div#editButtons{
   align-items:flex-start;
 }
 
+select#loginType{
+  width: 100px;
+  margin-right: 30px;
+}
+
+#numberInput{
+  width: 80px;
+}
+
 div#lessonDiv{
   text-align: center;
 }

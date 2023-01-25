@@ -45,7 +45,7 @@ function Login({setCurrentUser}){
     <form onSubmit={onSubmitLogin}>
       username<input autoComplete="username" name = "username" value = {userInfo.username} onChange={handleChange}></input><br/>
       password<input autoComplete="password" type="password" value = {userInfo.password} name = "password" onChange={handleChange} ></input><br/>
-      <select name = "userType" value = {userInfo.userType} onChange={handleChange}>
+      <select id="loginType" name = "userType" value = {userInfo.userType} onChange={handleChange}>
         <option>student</option>
         <option>tutor</option>
       </select>
