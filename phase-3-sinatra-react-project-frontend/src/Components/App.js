@@ -3,10 +3,9 @@ import '../App.css';
 import Header from './Header';
 import Search from './Search';
 import Results from './Results';
-import CreateNewLesson from '../CreateNewLesson';
+import CreateNewLesson from './CreateNewLesson';
 
 function App() {
-
   const [currentUser, setCurrentUser] = useState({
     username: null,
     password: null
@@ -75,18 +74,16 @@ function App() {
     })
 
     setQueryResults(null)
-
   }
 
   return (
-    <div id="app">
+    <div>
       <Header currentUser = {currentUser.username} setCurrentUser = {setCurrentUser} onLogout={onLogout} />
       {currentUser.username ? 
         <div>
           <div>
             <div id='searchOrCreate'>
-            <CreateNewLesson handleAddLesson={handleAddLesson} />
-
+              <CreateNewLesson handleAddLesson={handleAddLesson} />
               <Search handleQueryResults={handleQueryResults}/>
             </div>
           </div>

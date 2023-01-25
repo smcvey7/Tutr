@@ -24,7 +24,6 @@ function Results({results, currentUser, handleUpdatedLesson, handleDeletedLesson
       })
       setFilteredResults(list)
     }
-    console.log("filter", filter, "filteredResults", filteredResults)
   }
 
   return(

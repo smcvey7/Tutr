@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import LessonTile from "./LessonTile";
 
 function LessonList({lessonsInfo, setShowLessons, handleUpdatedLesson, handleDeletedLesson}){
