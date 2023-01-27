@@ -11,6 +11,7 @@ function Results({results, currentUser, handleUpdatedLesson, handleDeletedLesson
   const [showLessons, setShowLessons]= useState(false)
 
   useEffect(()=>{
+    
     setFilteredResults(results)
   },[results])
 

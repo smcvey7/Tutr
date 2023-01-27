@@ -46,7 +46,7 @@ function App() {
   }
 
   function handleAddLesson(lessonInfo){
-    queryResults.map(user=>{
+     const update = queryResults.map(user=>{
       if (user.position === "tutor" && user.id ===lessonInfo.tutor_id){
         return {
           ...user,
@@ -65,6 +65,8 @@ function App() {
         }
       }else return user
     })
+
+    setQueryResults(update)
   }
 
   function onLogout(){
