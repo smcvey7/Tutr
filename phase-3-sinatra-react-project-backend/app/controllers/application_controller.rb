@@ -1,7 +1,7 @@
+
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-  # Add your routes here
   get '/students' do
     students = Student.all
 
@@ -52,20 +52,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/course-lookup/:course' do 
+    lesson_list = Lesson.course_search (params[:course])
 
-    results = []
-
-    lesson_list = Lesson.where("subject like ?", "%#{params[:course]}%")
-
-    student_list = lesson_list.each do |lesson|
-      results << Student.find(lesson.student_id)
-    end
-
-    tutor_list = lesson_list.each do |lesson|
-      results << Tutor.find(lesson.tutor_id)
-    end
-
-    results.uniq.to_json(include: {
+    (Student.student_list(lesson_list)+Tutor.tutor_list(lesson_list)).to_json(include: {
       lessons: {
         include: [
           :tutor,
@@ -78,12 +67,7 @@ class ApplicationController < Sinatra::Base
 
   get '/user-lookup/:name' do 
 
-    student_list = Student.where("name like ?", "%#{params[:name]}%")
-    tutor_list = Tutor.where("name like ?", "%#{params[:name]}%")
-
-    combined = student_list+tutor_list
-
-    combined.to_json(include: {
+    (Student.search(params[:name])+Tutor.search(params[:name])).to_json(include: {
       lessons: {
         include: [
           :tutor,
@@ -109,7 +93,6 @@ class ApplicationController < Sinatra::Base
 
   delete '/delete-lesson/:id' do
     lesson = Lesson.find(params[:id])
-
     lesson.destroy
   end
 

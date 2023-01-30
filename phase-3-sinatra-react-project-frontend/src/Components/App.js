@@ -13,6 +13,9 @@ function App() {
 
   const [queryResults, setQueryResults] = useState(null)
 
+  const [lessonsInfo, setLessonsInfo] = useState(null)
+
+
   function handleQueryResults(data){
     setQueryResults(data)
   }
@@ -42,7 +45,13 @@ function App() {
       }
     })
 
+    
+    const filteredLessons = lessonsInfo.filter(lesson=>{
+      return lesson.id !== id
+    })
+
     setQueryResults(filteredResults)
+    setLessonsInfo(filteredLessons)
   }
 
   function handleAddLesson(lessonInfo){
@@ -89,7 +98,7 @@ function App() {
               <Search handleQueryResults={handleQueryResults}/>
             </div>
           </div>
-          {queryResults ? <Results results={queryResults} currentUser={currentUser} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson}/> : null}
+          {queryResults ? <Results results={queryResults} currentUser={currentUser} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson} lessonsInfo={lessonsInfo} setLessonsInfo = {setLessonsInfo} /> : null}
         </div> :
         <p id='welcomeMessage' ><em>Welcome to TUTR! Please log in to get started.</em></p>}
     </div>

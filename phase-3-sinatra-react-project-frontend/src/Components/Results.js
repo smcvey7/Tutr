@@ -2,11 +2,9 @@ import React, {useState, useEffect} from "react";
 import LessonList from "./LessonList";
 import UserTile from "./UserTile";
 
-function Results({results, currentUser, handleUpdatedLesson, handleDeletedLesson}){
+function Results({results, currentUser, handleUpdatedLesson, handleDeletedLesson, lessonsInfo, setLessonsInfo}){
 
   const [filteredResults, setFilteredResults] = useState(null)
-
-  const [lessonsInfo, setLessonsInfo] = useState(null)
 
   const [showLessons, setShowLessons]= useState(false)
 
