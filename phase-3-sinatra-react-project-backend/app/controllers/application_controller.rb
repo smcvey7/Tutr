@@ -1,6 +1,13 @@
 
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
+
+  get '/' do
+    "The info from this API can be accessed using: 
+    tutor info: localhost:9292/tutors
+    student info: localhost:9292/students
+    lesson info: localhost:9292/lessons"
+  end
   
   get '/students' do
     students = Student.all
