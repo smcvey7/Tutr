@@ -114,7 +114,7 @@ Tutor.create([
     position: "tutor",
     name: "Ariana",
     courses: "Polish and Ukrainian",
-    image_url: "https://www.biography.com/.image/t_share/MTQ3MzM3MTcxNjA5NTkzNjQ3/ariana_grande_photo_jon_kopaloff_getty_images_465687098.jpg",
+    image_url: "https://hips.hearstapps.com/hmg-prod/images/ariana_grande_photo_jon_kopaloff_getty_images_465687098.jpg?resize=1200:*",
     username: "ariana",
     password: "password",
   },
@@ -154,100 +154,196 @@ Tutor.create([
 
 Lesson.create([
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "Elvish 203",
-    info: 6,
-    student_id: 1,
-    tutor_id: 10
+    "date": "2023-02-01",
+    "time": "14:30",
+    "subject": "Elvish 203",
+    "info": 5,
+    "student_id": 1,
+    "tutor_id": 10
   },
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "German 101",
-    info: 8,
-    student_id: 2,
-    tutor_id: 3
+    "date": "2023-02-01",
+    "time": "14:30",
+    "subject": "Pig Latin 303",
+    "info": 3,
+    "student_id": 3,
+    "tutor_id": 3
   },
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "Pig Latin 303",
-    info: 3,
-    student_id: 3,
-    tutor_id: 3
+    "date": "2023-02-01",
+    "time": "14:30",
+    "subject": "Canadian 101",
+    "info": 5,
+    "student_id": 4,
+    "tutor_id": 8
   },
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "Canadian 101",
-    info: 4,
-    student_id: 4,
-    tutor_id: 8
+    "date": "2023-02-01",
+    "time": "14:30",
+    "subject": "Elvish 202",
+    "info": 10,
+    "student_id": 5,
+    "tutor_id": 10
   },
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "Elvish 202",
-    info: 10,
-    student_id: 5,
-    tutor_id: 10
+    "date": "2023-02-01",
+    "time": "14:30",
+    "subject": "Korean 101",
+    "info": 3,
+    "student_id": 7,
+    "tutor_id": 1
   },
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "Chinese 203",
-    info: 13,
-    student_id: 6,
-    tutor_id: 1
+    "date": "2023-02-01",
+    "time": "14:30",
+    "subject": "German 102",
+    "info": 7,
+    "student_id": 8,
+    "tutor_id": 3
   },
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "Korean 101",
-    info: 3,
-    student_id: 7,
-    tutor_id: 1
+    "date": "2023-02-01",
+    "time": "14:30",
+    "subject": "Spanish 402",
+    "info": 8,
+    "student_id": 9,
+    "tutor_id": 2
   },
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "German 102",
-    info: 7,
-    student_id: 8,
-    tutor_id: 3
+    "date": "2023-02-01",
+    "time": "14:30",
+    "subject": "Spanish 201",
+    "info": 12,
+    "student_id": 10,
+    "tutor_id": 2
   },
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "Spanish 402",
-    info: 8,
-    student_id: 9,
-    tutor_id: 2
+    "date": "2023-02-01",
+    "time": "14:30",
+    "subject": "Spanish 302",
+    "info": 8,
+    "student_id": 11,
+    "tutor_id": 2
   },
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "Spanish 201",
-    info: 12,
-    student_id: 10,
-    tutor_id: 2
+    "date": "2023-02-01",
+    "time": "14:30",
+    "subject": "Elvish 301",
+    "info": 9,
+    "student_id": 9,
+    "tutor_id": 10
   },
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "Spanish 302",
-    info: 8,
-    student_id: 11,
-    tutor_id: 2
+    "date": "2023-02-23",
+    "time": "16:52",
+    "subject": "Russian 203",
+    "info": 5,
+    "student_id": 4,
+    "tutor_id": 5
   },
   {
-    date: "2023-02-01",
-    time: "14:30",
-    subject: "Elvish 301",
-    info: 9,
-    student_id: 9,
-    tutor_id: 10
+    "date": "2023-02-01",
+    "time": "15:55",
+    "subject": "French 101",
+    "info": 1,
+    "student_id": 4,
+    "tutor_id": 2
+  },
+  {
+    "date": "2023-02-09",
+    "time": "19:00",
+    "subject": "Japanese 304",
+    "info": 12,
+    "student_id": 3,
+    "tutor_id": 4
+  },
+  {
+    "date": "2023-02-06",
+    "time": "17:15",
+    "subject": "Portuguese 202",
+    "info": 4,
+    "student_id": 8,
+    "tutor_id": 9
+  },
+  {
+    "date": "2023-02-17",
+    "time": "15:15",
+    "subject": "Russian 402",
+    "info": 8,
+    "student_id": 6,
+    "tutor_id": 5
+  },
+  {
+    "date": "2023-02-08",
+    "time": "17:30",
+    "subject": "Ukrainian 102",
+    "info": 1,
+    "student_id": 9,
+    "tutor_id": 6
+  },
+  {
+    "date": "2023-02-10",
+    "time": "15:30",
+    "subject": "Czech 301",
+    "info": 2,
+    "student_id": 11,
+    "tutor_id": 7
+  },
+  {
+    "date": "2023-02-02",
+    "time": "15:34",
+    "subject": "French 201",
+    "info": 1,
+    "student_id": 1,
+    "tutor_id": 2
+  },
+  {
+    "date": "2023-02-15",
+    "time": "15:37",
+    "subject": "Chinese 401",
+    "info": 10,
+    "student_id": 2,
+    "tutor_id": 1
+  },
+  {
+    "date": "2023-02-11",
+    "time": "15:37",
+    "subject": "Pig Latin 101",
+    "info": 1,
+    "student_id": 7,
+    "tutor_id": 3
+  },
+  {
+    "date": "2023-02-02",
+    "time": "15:44",
+    "subject": "Australian 202",
+    "info": 1,
+    "student_id": 9,
+    "tutor_id": 8
+  },
+  {
+    "date": "2023-02-24",
+    "time": "15:51",
+    "subject": "Polish 203",
+    "info": 3,
+    "student_id": 5,
+    "tutor_id": 6
+  },
+  {
+    "date": "2023-02-01",
+    "time": "16:21",
+    "subject": "Russian 201",
+    "info": 1,
+    "student_id": 8,
+    "tutor_id": 5
+  },
+  {
+    "date": "2023-02-15",
+    "time": "21:47",
+    "subject": "Ukrainian 102",
+    "info": 1,
+    "student_id": 2,
+    "tutor_id": 6
   }
 ])
 

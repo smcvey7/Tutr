@@ -70,10 +70,8 @@ function handleSubmit(e){
   .then(res=>res.json())
   .then(data=>{
     handleAddLesson(data)
-
   })
   resetForm()
-  alert("New lesson created")
 }
 
   return(

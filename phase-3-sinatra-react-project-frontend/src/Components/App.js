@@ -15,11 +15,6 @@ function App() {
 
   const [lessonsInfo, setLessonsInfo] = useState(null)
 
-
-  function handleQueryResults(data){
-    setQueryResults(data)
-  }
-
   function handleUpdatedLesson(updatedLesson){
     const filteredResults = queryResults.map((user)=>{
       return {
@@ -45,7 +40,6 @@ function App() {
       }
     })
 
-    
     const filteredLessons = lessonsInfo.filter(lesson=>{
       return lesson.id !== id
     })
@@ -55,6 +49,7 @@ function App() {
   }
 
   function handleAddLesson(lessonInfo){
+    if (queryResults !== null){
      const update = queryResults.map(user=>{
       if (user.position === "tutor" && user.id ===lessonInfo.tutor_id){
         return {
@@ -78,6 +73,8 @@ function App() {
     setQueryResults(update)
   }
 
+  }
+
   function onLogout(){
     setCurrentUser({
       username: null,
@@ -95,7 +92,7 @@ function App() {
           <div>
             <div id='searchOrCreate'>
               <CreateNewLesson handleAddLesson={handleAddLesson} />
-              <Search handleQueryResults={handleQueryResults}/>
+              <Search handleQueryResults={setQueryResults}/>
             </div>
           </div>
           {queryResults ? <Results results={queryResults} currentUser={currentUser} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson} lessonsInfo={lessonsInfo} setLessonsInfo = {setLessonsInfo} /> : null}

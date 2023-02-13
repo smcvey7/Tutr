@@ -138,7 +138,10 @@ class ApplicationController < Sinatra::Base
       subject: params[:subject]
     )
 
-    newLesson.to_json
+    newLesson.to_json(include: [
+      :tutor,
+      :student
+  ])
   end
 
 end

@@ -1,14 +1,18 @@
 import React from "react";
 
-function UserTile({user, setShowLessons, currentUser, setLessonsInfo}){
+function UserTile({user, setShowLessons, currentUser, setLessonsInfo, filteredResults }){
 
   const courses = currentUser.username ? user.lessons.map((lesson)=>{
     return <li key={lesson.subject+lesson.info}>{lesson.subject}-{lesson.info}</li>
   }) : null
 
   function revealLessons(){
+    const selectedUser = filteredResults.filter((person)=>{
+      return person.position === user.position && person.id === user.id
+    })[0]
+
     setShowLessons(true)
-    setLessonsInfo(user.lessons)
+    setLessonsInfo(selectedUser.lessons)
   }
 
   return(

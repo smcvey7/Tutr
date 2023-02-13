@@ -43,7 +43,7 @@ function Results({results, currentUser, handleUpdatedLesson, handleDeletedLesson
       </div>
       <div className="flexContainer" id="resultsSidePanel">
         <div className="flexContainer" id="resultsFlex">
-          {filteredResults === null ? null : filteredResults.map(user=><UserTile setLessonsInfo={setLessonsInfo} setShowLessons={setShowLessons} key={user.username} currentUser={currentUser} user = {user}/>)}
+          {filteredResults === null ? null : filteredResults.map(user=><UserTile setLessonsInfo={setLessonsInfo} setShowLessons={setShowLessons} key={user.username} currentUser={currentUser} user = {user} filteredResults={filteredResults} />)}
         </div>
         {showLessons ? <div id="sidePanelFlex">
           <LessonList lessonsInfo={lessonsInfo} setShowLessons={setShowLessons} handleUpdatedLesson={handleUpdatedLesson} handleDeletedLesson={handleDeletedLesson} />
