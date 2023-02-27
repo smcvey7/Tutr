@@ -57,10 +57,10 @@ function LessonEditForm({revealEdit, isEditing, lesson, handleUpdatedLesson, han
           {isEditing ? 
             <div id="editButtons">
               <input value="submit" type="submit"/>
+              <button onClick={()=>revealEdit(false)}>cancel</button>
+              <button onClick={handleDelete}>delete</button>
             </div>:
             <button onClick={()=>revealEdit(true)}>edit lesson</button>}
-            <button onClick={()=>revealEdit(false)}>cancel</button>
-          <button onClick={handleDelete}>delete</button>
         </form>
       </>
   )
