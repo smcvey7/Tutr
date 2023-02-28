@@ -11,27 +11,23 @@ class ApplicationController < Sinatra::Base
   
   get '/students' do
     students = Student.all
-
     students.to_json
   end
 
   get '/tutors' do
     tutors = Tutor.all
-
     tutors.to_json
   end
 
 
   get '/lessons' do
     lessons = Lesson.all
-
     lessons.to_json
   end
 
+#used for student login
   get '/students/user-search/:username' do
-
     student_info = Student.find_by(username: params[:username])
-
     student_info.to_json(
       include: {
         lessons: {
@@ -43,10 +39,9 @@ class ApplicationController < Sinatra::Base
     })
   end
 
+#used for tutor login
   get '/tutors/user-search/:username' do
-
     student_info = Tutor.find_by(username: params[:username])
-
     student_info.to_json(
       include: {
         lessons: {
@@ -58,6 +53,7 @@ class ApplicationController < Sinatra::Base
     })
   end
 
+#used to search by course
   get '/course-lookup/:course' do 
     lesson_list = Lesson.course_search (params[:course])
 
@@ -69,11 +65,10 @@ class ApplicationController < Sinatra::Base
       ]
     }
   })
-
   end
 
+#used to search by username
   get '/user-lookup/:name' do 
-
     (Student.search(params[:name])+Tutor.search(params[:name])).to_json(include: {
       lessons: {
         include: [
@@ -82,19 +77,15 @@ class ApplicationController < Sinatra::Base
       ]
     }
   })
-
   end
 
   patch '/edit-lesson/:id' do
-
     lesson = Lesson.find(params[:id])
-
     lesson.update(
       date: params[:date],
       time: params[:time],
       info: params[:info]
     )
-
     lesson.to_json
   end
 
@@ -103,8 +94,8 @@ class ApplicationController < Sinatra::Base
     lesson.destroy
   end
 
+# list of students and tutors used for dropdown menus in create lesson
   get '/student-tutor-list' do
-
     list = {
       tutor_list: [],
       student_list: []
@@ -124,7 +115,6 @@ class ApplicationController < Sinatra::Base
         id: student.id
       }
     end
-
     list.to_json
   end
 
@@ -137,11 +127,9 @@ class ApplicationController < Sinatra::Base
       student_id: params[:student_id],
       subject: params[:subject]
     )
-
     newLesson.to_json(include: [
       :tutor,
       :student
   ])
   end
-
 end
